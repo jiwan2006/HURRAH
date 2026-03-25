@@ -4,6 +4,21 @@ import pandas as pd
 # --- [0. 기본 설정 및 세션 상태 초기화] ---
 st.set_page_config(page_title="HURRAH", layout="wide")
 
+# 2. 아래 코드를 추가해서 테마를 'Dark'로 강제 고정합니다.
+st.markdown("""
+    <style>
+    /* 전체 배경을 어둡게 고정 */
+    .stApp {
+        background-color: #0E1117;
+        color: #FFFFFF;
+    }
+    /* 데이터프레임(표)의 배경색이 흰색으로 튀는 걸 방지 */
+    .stDataFrame, div[data-testid="stTable"] {
+        background-color: #1a1c24;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
 # 구글 스프레드시트 CSV 링크 설정
 URL_PLAYERS = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR0AIsQ8X9XoO2hs0gW40WgtSF22eXNEkKGbNw2rFeMJ6Y8q16a45w3Pg1n8uV_RHnccvBbn9q4yfAR/pub?gid=0&single=true&output=csv"
 URL_BATTERS = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR0AIsQ8X9XoO2hs0gW40WgtSF22eXNEkKGbNw2rFeMJ6Y8q16a45w3Pg1n8uV_RHnccvBbn9q4yfAR/pub?gid=214942261&single=true&output=csv"
