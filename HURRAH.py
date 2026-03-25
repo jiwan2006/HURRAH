@@ -4,17 +4,56 @@ import pandas as pd
 # --- [0. 기본 설정 및 세션 상태 초기화] ---
 st.set_page_config(page_title="HURRAH", layout="wide")
 
-# 2. 아래 코드를 추가해서 테마를 'Dark'로 강제 고정합니다.
+삼성 브라우저와 모바일 환경에서 버전이나 다크 모드 설정에 상관없이 모든 표와 버튼이 선명하게 보이도록 최적화한 최종 통합 코드입니다.
+
+기존의 모든 디자인 로직(노란색 강조, 승패 색상)은 유지하면서, 어떤 기기에서도 배경이 하얗게 뜨지 않도록 강력한 스타일 시트를 적용했습니다.
+
+⚾ 부경대 후라(HURRAH) 최종 최적화 코드
+Python
+import streamlit as st
+import pandas as pd
+
+# --- [0. 기본 설정 및 모바일 최적화 스타일] ---
+st.set_page_config(page_title="부경대학교 후라", layout="wide")
+
+# 모든 환경(특히 삼성 인터넷)에서 다크 테마를 강제하고 버튼/표 시인성을 높이는 CSS
 st.markdown("""
     <style>
-    /* 전체 배경을 어둡게 고정 */
+    /* 전체 배경 및 기본 글자색 고정 */
     .stApp {
-        background-color: #0E1117;
-        color: #FFFFFF;
+        background-color: #0E1117 !important;
+        color: #FFFFFF !important;
     }
-    /* 데이터프레임(표)의 배경색이 흰색으로 튀는 걸 방지 */
-    .stDataFrame, div[data-testid="stTable"] {
-        background-color: #1a1c24;
+    
+    /* 메인 화면 및 모든 버튼 스타일 강화 */
+    div.stButton > button {
+        background-color: #1E1E1E !important;
+        color: #FFFFFF !important;
+        border: 2px solid #FFD700 !important; /* 노란색 테두리 */
+        border-radius: 8px !important;
+        padding: 0.6em 1em !important;
+        font-weight: bold !important;
+        width: 100% !important;
+        margin-bottom: 5px !important;
+    }
+
+    /* 버튼에 마우스 올리거나 눌렀을 때 */
+    div.stButton > button:hover, div.stButton > button:active {
+        background-color: #FFD700 !important;
+        color: #000000 !important;
+        border: 2px solid #FFFFFF !important;
+    }
+
+    /* 표(DataFrame) 배경 및 테두리 설정 */
+    div[data-testid="stDataFrame"], .stTable {
+        background-color: #161b22 !important;
+        border: 1px solid #30363d !important;
+        border-radius: 5px !important;
+    }
+
+    /* 뒤로가기 버튼 등 작은 버튼 색상 별도 지정 (선택사항) */
+    button[kind="secondary"] {
+        border: 1px solid #555 !important;
     }
     </style>
     """, unsafe_allow_html=True)
