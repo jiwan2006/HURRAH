@@ -94,7 +94,8 @@ elif st.session_state.menu == 'roster':
         df_p = load_data(URL_PLAYERS).sort_values('배번')
         
         def apply_team_color(x):
-            color = 'color: #FFFF00' if x['OB/YB'] == 'OB' else 'color: #FFFFFF'
+            # OB는 골드색(#FFD700) 적용, YB는 빈 문자열('')을 반환하여 기본색 유지
+            color = 'color: #FFD700' if x['OB/YB'] == 'OB' else ''
             return [color] * len(x)
 
         styled_df = df_p.style.apply(apply_team_color, axis=1)
