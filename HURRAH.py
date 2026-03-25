@@ -4,18 +4,6 @@ import pandas as pd
 # --- [0. 기본 설정 및 세션 상태 초기화] ---
 st.set_page_config(page_title="HURRAH", layout="wide")
 
-삼성 브라우저와 모바일 환경에서 버전이나 다크 모드 설정에 상관없이 모든 표와 버튼이 선명하게 보이도록 최적화한 최종 통합 코드입니다.
-
-기존의 모든 디자인 로직(노란색 강조, 승패 색상)은 유지하면서, 어떤 기기에서도 배경이 하얗게 뜨지 않도록 강력한 스타일 시트를 적용했습니다.
-
-⚾ 부경대 후라(HURRAH) 최종 최적화 코드
-Python
-import streamlit as st
-import pandas as pd
-
-# --- [0. 기본 설정 및 모바일 최적화 스타일] ---
-st.set_page_config(page_title="부경대학교 후라", layout="wide")
-
 # 모든 환경(특히 삼성 인터넷)에서 다크 테마를 강제하고 버튼/표 시인성을 높이는 CSS
 st.markdown("""
     <style>
